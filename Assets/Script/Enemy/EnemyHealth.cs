@@ -12,6 +12,7 @@ public class EnemyHealth : MonoBehaviour
         if (healthPoint <= 0)
         {
             Destroy(gameObject);
+            GameplayManager.Instance.scoreValue += 100;
         }
     }
 
@@ -19,7 +20,8 @@ public class EnemyHealth : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Destroy(gameObject);    
+            Destroy(gameObject);
+            GameplayManager.Instance.scoreValue -= 50;
         }
         if (other.CompareTag("Bullet"))
         {
